@@ -1,0 +1,550 @@
+/* ==========================================================
+   The Chanting Room – styles
+   Phone-first, responsive up to laptop and desktop screens.
+   ========================================================== */
+
+:root {
+  --bg: #fdf8f1;
+  --surface: #ffffff;
+  --text: #1d1a17;
+  --muted: #6b635b;
+  --accent: #e8831a;        /* orange from the logo sound-wave */
+  --accent-dark: #c4650a;
+  --dark: #111010;          /* black from the logo oval */
+  --radius: 16px;
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  --max: 1100px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent-dark);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section {
+  padding: 56px 0;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  margin: 0 0 12px;
+}
+
+h2 {
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.section-sub {
+  text-align: center;
+  color: var(--muted);
+  margin: 0 auto 32px;
+  max-width: 560px;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.1s ease, background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 2px solid #d9d0c4;
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+}
+
+/* ---------- Header / Logo ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(253, 248, 241, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #efe6da;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.logo-oval {
+  width: 44px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logo-oval svg {
+  width: 22px;
+  height: 16px;
+}
+
+.logo-text {
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+.logo-text span {
+  color: var(--accent);
+}
+
+.nav {
+  display: none;
+  gap: 22px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  text-align: center;
+  padding: 48px 0 32px;
+  background: radial-gradient(circle at top, #fff0de 0%, var(--bg) 70%);
+}
+
+.hero h1 {
+  font-size: 2.1rem;
+}
+
+.hero .tagline {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 520px;
+  margin: 0 auto 24px;
+}
+
+.hero .om {
+  font-size: 2.4rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+/* ---------- Counter ---------- */
+
+.counter-card {
+  background: var(--surface);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 28px 20px;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mantra-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.mantra-row label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-align: left;
+}
+
+.mantra-row input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #eadfd1;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fffdfa;
+}
+
+.mantra-row input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.mala-wrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 20px;
+}
+
+.mala-wrap svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: #f3ebe0;
+  stroke-width: 12;
+}
+
+.ring-fg {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 12;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.25s ease;
+}
+
+.count-display {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#count {
+  font-size: 3.6rem;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.count-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.stats strong {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.tap-btn {
+  width: 100%;
+  padding: 20px;
+  font-size: 1.2rem;
+  border-radius: 18px;
+  background: var(--dark);
+  color: #fff;
+  margin-bottom: 14px;
+}
+
+.tap-btn:hover {
+  background: #2a2826;
+}
+
+.control-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.control-row .btn {
+  padding: 10px 16px;
+  font-size: 0.9rem;
+}
+
+.toggle {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* ---------- Channel ---------- */
+
+.channel-card {
+  background: var(--dark);
+  color: #fff;
+  border-radius: 24px;
+  padding: 36px 24px;
+  text-align: center;
+}
+
+.channel-card h2 {
+  color: #fff;
+}
+
+.channel-card p {
+  color: #d6d0c9;
+  max-width: 520px;
+  margin: 0 auto 24px;
+}
+
+/* ---------- Products (affiliate) ---------- */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.product-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-thumb {
+  height: 140px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ffe2bf, #ffd1a0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+}
+
+.product-card h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.product-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.product-card .btn {
+  align-self: flex-start;
+}
+
+.disclosure {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 20px;
+}
+
+/* ---------- Ad slot ---------- */
+
+.ad-slot {
+  max-width: 728px;
+  min-height: 90px;
+  margin: 0 auto;
+  border: 2px dashed #e4d8c7;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b3a898;
+  font-size: 0.85rem;
+  background: #fffdf9;
+}
+
+/* ---------- Floating Home button ---------- */
+
+.home-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--dark);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: background 0.2s ease, transform 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.home-btn:hover {
+  background: var(--accent);
+}
+
+.home-btn:active {
+  transform: scale(0.96);
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--dark);
+  color: #cfc8bf;
+  padding: 32px 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: #fff;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+/* ---------- Responsive: tablet and up ---------- */
+
+@media (min-width: 600px) {
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .channel-card {
+    padding: 48px 40px;
+  }
+}
+
+/* ---------- Responsive: laptop and desktop ---------- */
+
+@media (min-width: 900px) {
+  section {
+    padding: 80px 0;
+  }
+
+  .nav {
+    display: flex;
+  }
+
+  .hero {
+    padding: 80px 0 60px;
+  }
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .hero .tagline {
+    font-size: 1.2rem;
+  }
+
+  .counter-card {
+    max-width: 520px;
+    padding: 40px 36px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  h2 {
+    font-size: 2.1rem;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

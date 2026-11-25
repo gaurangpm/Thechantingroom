@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Chanting Room – Naam Jap Counter</title>
+  <meta name="description" content="A free online Naam Jap counter with a 108-bead mala ring, plus videos from The Creator Room YouTube channel." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="logo" aria-label="The Chanting Room home">
+        <span class="logo-oval" aria-hidden="true">
+          <!-- Simple orange sound-wave icon -->
+          <svg viewBox="0 0 22 16" fill="none" stroke="#e8831a" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="3" y2="10"/>
+            <line x1="7" y1="3" x2="7" y2="13"/>
+            <line x1="11" y1="1" x2="11" y2="15"/>
+            <line x1="15" y1="4" x2="15" y2="12"/>
+            <line x1="19" y1="6" x2="19" y2="10"/>
+          </svg>
+        </span>
+        <span class="logo-text">The <span>Chanting</span> Room</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#top">Home</a>
+        <a href="#counter">Counter</a>
+        <a href="#channel">Channel</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="container">
+        <div class="om" aria-hidden="true">ॐ</div>
+        <h1>Naam Jap Counter</h1>
+        <p class="tagline">
+          Count your chanting with ease. Tap, breathe, and let the mala guide you.
+          Your progress is saved on this device.
+        </p>
+        <a href="#counter" class="btn btn-primary">Start Chanting</a>
+      </div>
+    </section>
+
+    <!-- ===== Counter ===== -->
+    <section id="counter">
+      <div class="container">
+        <h2>Naam Jap Counter</h2>
+        <p class="section-sub">One mala is 108 beads. The ring fills as you chant and completes a round every 108 counts.</p>
+
+        <div class="counter-card">
+
+          <div class="mantra-row">
+            <label for="mantra">Your mantra (optional)</label>
+            <input id="mantra" type="text" placeholder="e.g. Om Namah Shivaya" maxlength="60" />
+          </div>
+
+          <div class="mala-wrap">
+            <svg viewBox="0 0 220 220" aria-hidden="true">
+              <circle class="ring-bg" cx="110" cy="110" r="100"></circle>
+              <circle id="ring" class="ring-fg" cx="110" cy="110" r="100"></circle>
+            </svg>
+            <div class="count-display">
+              <span id="count" aria-live="polite">0</span>
+              <span class="count-label">of 108</span>
+            </div>
+          </div>
+
+          <div class="stats">
+            <div>
+              <strong id="malas">0</strong>
+              Malas completed
+            </div>
+            <div>
+              <strong id="today">0</strong>
+              Today
+            </div>
+          </div>
+
+          <button id="tapBtn" class="btn tap-btn" type="button">Tap to Count</button>
+
+          <div class="control-row">
+            <button id="undoBtn" class="btn btn-ghost" type="button">Undo</button>
+            <button id="resetBtn" class="btn btn-ghost" type="button">Reset</button>
+          </div>
+
+          <label class="toggle">
+            <input id="vibrateToggle" type="checkbox" checked />
+            Vibrate on each count (phones)
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Ad slot ===== -->
+    <div class="container" style="padding-bottom: 20px;">
+      <div class="ad-slot">Advertisement</div>
+    </div>
+
+    <!-- ===== YouTube channel ===== -->
+    <section id="channel">
+      <div class="container">
+        <div class="channel-card">
+          <h2>Watch on The Creator Room</h2>
+          <p>
+            Videos, tips, and updates from our YouTube channel. Subscribe so you never miss a new upload.
+          </p>
+          <a href="https://www.youtube.com/@TheCreatorRoom" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Visit YouTube Channel
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Affiliate products ===== -->
+    <section id="products">
+      <div class="container">
+        <h2>Recommended Products</h2>
+        <p class="section-sub">Items we personally find useful for chanting and daily practice.</p>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-thumb" aria-hidden="true">📿</div>
+            <h3>Tulsi Mala (108 Beads)</h3>
+            <p>A traditional prayer mala for steady japa practice.</p>
+            <a href="#" class="btn btn-primary" rel="sponsored nofollow noopener" target="_blank">View Product</a>
+          </article>
+
+          <article class="product-card">
+            <div class="product-thumb" aria-hidden="true">🕯️</div>
+            <h3>Brass Puja Diya</h3>
+            <p>A simple lamp to create a calm space for your practice.</p>
+            <a href="#" class="btn btn-primary" rel="sponsored nofollow noopener" target="_blank">View Product</a>
+          </article>
+
+          <article class="product-card">
+            <div class="product-thumb" aria-hidden="true">🎧</div>
+            <h3>Meditation Audio Set</h3>
+            <p>Soft chants and background sounds for focused sessions.</p>
+            <a href="#" class="btn btn-primary" rel="sponsored nofollow noopener" target="_blank">View Product</a>
+          </article>
+        </div>
+
+        <p class="disclosure">
+          Some links on this page are affiliate links. We may earn a small commission at no extra cost to you.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact">
+      <div class="container" style="text-align:center;">
+        <h2>Get in Touch</h2>
+        <p class="section-sub">Questions, collaborations, or product suggestions? We would love to hear from you.</p>
+        <a href="mailto:hello@example.com" class="btn btn-ghost">hello@example.com</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="#counter">Counter</a>
+        <a href="#channel">Channel</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+      <p>&copy; <span id="year">2026</span> The Chanting Room. A companion to The Creator Room.</p>
+    </div>
+  </footer>
+
+  <!-- ===== Floating Home button (visible on phones and desktops) ===== -->
+  <a href="#top" class="home-btn" aria-label="Back to top of page">
+    <span aria-hidden="true">&#8593;</span> Home
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
