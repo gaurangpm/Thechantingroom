@@ -14,6 +14,12 @@
   --radius: 16px;
   --shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
   --max: 1100px;
+  --header-bg: rgba(253, 248, 241, 0.92);
+  --hero-glow: #fff0de;
+  --line: #e4d8c7;
+  --ring-track: #f3ebe0;
+  --input-bg: #fffdfa;
+  --on-accent: #fff;
 }
 
 *,
@@ -95,7 +101,7 @@ h2 {
 
 .btn-primary {
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
 }
 
 .btn-primary:hover {
@@ -105,7 +111,7 @@ h2 {
 .btn-ghost {
   background: transparent;
   color: var(--text);
-  border: 2px solid #d9d0c4;
+  border: 2px solid var(--line);
 }
 
 .btn-ghost:hover {
@@ -118,9 +124,9 @@ h2 {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(253, 248, 241, 0.92);
+  background: var(--header-bg);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid #efe6da;
+  border-bottom: 1px solid var(--line);
 }
 
 .header-inner {
@@ -168,6 +174,8 @@ h2 {
 .nav {
   display: none;
   gap: 22px;
+  margin-left: auto;
+  margin-right: 18px;
 }
 
 .nav a {
@@ -185,7 +193,7 @@ h2 {
 .hero {
   text-align: center;
   padding: 48px 0 32px;
-  background: radial-gradient(circle at top, #fff0de 0%, var(--bg) 70%);
+  background: radial-gradient(circle at top, var(--hero-glow) 0%, var(--bg) 70%);
 }
 
 .hero h1 {
@@ -233,11 +241,11 @@ h2 {
 .mantra-row input {
   width: 100%;
   padding: 12px 14px;
-  border: 2px solid #eadfd1;
+  border: 2px solid var(--line);
   border-radius: 12px;
   font-size: 1rem;
   font-family: inherit;
-  background: #fffdfa;
+  background: var(--input-bg);
 }
 
 .mantra-row input:focus {
@@ -260,7 +268,7 @@ h2 {
 
 .ring-bg {
   fill: none;
-  stroke: #f3ebe0;
+  stroke: var(--ring-track);
   stroke-width: 12;
 }
 
@@ -421,14 +429,236 @@ h2 {
   max-width: 728px;
   min-height: 90px;
   margin: 0 auto;
-  border: 2px dashed #e4d8c7;
+  border: 2px dashed var(--line);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #b3a898;
+  color: var(--muted);
   font-size: 0.85rem;
-  background: #fffdf9;
+  background: var(--surface);
+}
+
+/* ---------- Theme dropdown (header, top right) ---------- */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+
+.theme-dropdown {
+  position: relative;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.2s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle[aria-expanded="true"] {
+  border-color: var(--accent);
+}
+
+.theme-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 210px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  z-index: 70;
+}
+
+.theme-menu.open {
+  display: block;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: none;
+  border-radius: 10px;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.theme-option:hover,
+.theme-option:focus-visible {
+  background: var(--hero-glow);
+  outline: none;
+}
+
+.theme-option[aria-checked="true"] {
+  font-weight: 600;
+}
+
+.theme-option[aria-checked="true"]::after {
+  content: "\2713";
+  margin-left: auto;
+  color: var(--accent);
+}
+
+/* ---------- Theme picker (old section styles, kept for swatches) ---------- */
+
+.theme-picker {
+  text-align: center;
+  margin: 0 auto 28px;
+}
+
+.theme-picker p {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.theme-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.theme-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.2s ease;
+}
+
+.theme-btn:hover {
+  border-color: var(--accent);
+}
+
+.theme-btn[aria-pressed="true"] {
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.theme-btn .swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, var(--sw1) 50%, var(--sw2) 50%);
+}
+
+/* Theme palettes (applied via <html data-theme="...">) */
+
+[data-theme="sandalwood"] {
+  --bg: #f4ede1;
+  --surface: #fbf7f0;
+  --text: #3a2a1e;
+  --muted: #6e5c4b;
+  --accent: #c98b4a;
+  --accent-dark: #a86f35;
+  --dark: #6b4a2b;
+  --header-bg: rgba(244, 237, 225, 0.92);
+  --hero-glow: #e6d8c2;
+  --line: #dccdb6;
+  --ring-track: #e6d8c2;
+  --input-bg: #fbf7f0;
+  --on-accent: #2b1b12;
+}
+
+[data-theme="lotus"] {
+  --bg: #fdf2f4;
+  --surface: #fffafb;
+  --text: #3b1f2b;
+  --muted: #6e4f5d;
+  --accent: #d4577a;
+  --accent-dark: #b3405e;
+  --dark: #9c2f4f;
+  --header-bg: rgba(253, 242, 244, 0.92);
+  --hero-glow: #f6dfe5;
+  --line: #efd3db;
+  --ring-track: #f6dfe5;
+  --input-bg: #fffafb;
+  --on-accent: #ffffff;
+}
+
+[data-theme="indigo"] {
+  --bg: #14182e;
+  --surface: #1d2340;
+  --text: #ede8da;
+  --muted: #b3b7cc;
+  --accent: #e8b04a;
+  --accent-dark: #c9913a;
+  --dark: #232b52;
+  --header-bg: rgba(20, 24, 46, 0.92);
+  --hero-glow: #232b52;
+  --line: #2e3558;
+  --ring-track: #2a3050;
+  --input-bg: #1d2340;
+  --on-accent: #14182e;
+}
+
+[data-theme="rudraksha"] {
+  --bg: #1f1c1a;
+  --surface: #2a2623;
+  --text: #f2ebe3;
+  --muted: #b8ada2;
+  --accent: #c46a3a;
+  --accent-dark: #a9552b;
+  --dark: #3a2e27;
+  --header-bg: rgba(31, 28, 26, 0.92);
+  --hero-glow: #3a2e27;
+  --line: #3d3733;
+  --ring-track: #3a332e;
+  --input-bg: #2a2623;
+  --on-accent: #fff7ee;
+}
+
+[data-theme="marigold"] {
+  --bg: #fff9e6;
+  --surface: #ffffff;
+  --text: #17363a;
+  --muted: #4e6a6d;
+  --accent: #f5b82e;
+  --accent-dark: #d89a1a;
+  --dark: #1b5e63;
+  --header-bg: rgba(255, 249, 230, 0.92);
+  --hero-glow: #f7e9b6;
+  --line: #efe2b8;
+  --ring-track: #f7e9b6;
+  --input-bg: #ffffff;
+  --on-accent: #17363a;
 }
 
 /* ---------- Floating Home button ---------- */

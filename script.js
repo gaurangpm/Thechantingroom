@@ -140,7 +140,10 @@
 
   // Keyboard: Space or Enter counts, unless typing in the mantra box
   document.addEventListener("keydown", function (e) {
-    const typing = e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA";
+    const typing =
+      e.target.tagName === "INPUT" ||
+      e.target.tagName === "TEXTAREA" ||
+      e.target.tagName === "BUTTON";
     if (typing) return;
     if (e.code === "Space" || e.key === "Enter") {
       e.preventDefault();
@@ -153,6 +156,69 @@
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
+
+  // ---------- Theme picker ----------
+  const THEME_KEY = "chantingRoomTheme";
+  const themeButtons = document.querySelectorAll(".theme-option");
+  const themeToggle = document.getElementById("themeToggle");
+  const themeMenu = document.getElementById("themeMenu");
+
+  function applyTheme(name) {
+    const theme = name || "classic";
+    if (theme === "classic") {
+      document.documentElement.removeAttribute("data-theme");
+    } else {
+      document.documentElement.setAttribute("data-theme", theme);
+    }
+    themeButtons.forEach(function (btn) {
+      btn.setAttribute("aria-checked", btn.dataset.theme === theme ? "true" : "false");
+    });
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch (e) {
+      /* ignore */
+    }
+  }
+
+  // Dropdown open / close
+  function setMenu(open) {
+    themeMenu.classList.toggle("open", open);
+    themeToggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  themeToggle.addEventListener("click", function (e) {
+    e.stopPropagation();
+    setMenu(!themeMenu.classList.contains("open"));
+  });
+
+  themeButtons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      applyTheme(btn.dataset.theme);
+      setMenu(false);
+      themeToggle.focus();
+    });
+  });
+
+  // Close when clicking anywhere else, or pressing Escape
+  document.addEventListener("click", function (e) {
+    if (!themeMenu.contains(e.target) && e.target !== themeToggle) {
+      setMenu(false);
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      setMenu(false);
+    }
+  });
+
+  let savedTheme = "classic";
+  try {
+    savedTheme = localStorage.getItem(THEME_KEY) || "classic";
+  } catch (e) {
+    /* ignore */
+  }
+  applyTheme(savedTheme);
 
   // ---------- Init ----------
   load();

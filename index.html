@@ -25,6 +25,7 @@
         </span>
         <span class="logo-text">The <span>Chanting</span> Room</span>
       </a>
+      <div class="header-right">
       <nav class="nav" aria-label="Main navigation">
         <a href="#top">Home</a>
         <a href="#counter">Counter</a>
@@ -32,6 +33,35 @@
         <a href="#products">Products</a>
         <a href="#contact">Contact</a>
       </nav>
+
+      <!-- Theme dropdown (top right) -->
+      <div class="theme-dropdown">
+        <button id="themeToggle" class="theme-toggle" type="button"
+                aria-haspopup="true" aria-expanded="false" aria-controls="themeMenu">
+          Theme <span aria-hidden="true">&#9662;</span>
+        </button>
+        <div id="themeMenu" class="theme-menu" role="menu" aria-label="Choose a theme">
+          <button type="button" class="theme-option" role="menuitemradio" data-theme="classic" aria-checked="true">
+            <span class="swatch" style="--sw1:#fdf8f1; --sw2:#e8831a"></span>Classic
+          </button>
+          <button type="button" class="theme-option" role="menuitemradio" data-theme="sandalwood" aria-checked="false">
+            <span class="swatch" style="--sw1:#f4ede1; --sw2:#c98b4a"></span>Sandalwood
+          </button>
+          <button type="button" class="theme-option" role="menuitemradio" data-theme="rudraksha" aria-checked="false">
+            <span class="swatch" style="--sw1:#1f1c1a; --sw2:#c46a3a"></span>Rudraksha
+          </button>
+          <button type="button" class="theme-option" role="menuitemradio" data-theme="lotus" aria-checked="false">
+            <span class="swatch" style="--sw1:#fdf2f4; --sw2:#d4577a"></span>Lotus Rose
+          </button>
+          <button type="button" class="theme-option" role="menuitemradio" data-theme="indigo" aria-checked="false">
+            <span class="swatch" style="--sw1:#14182e; --sw2:#e8b04a"></span>Temple Indigo
+          </button>
+          <button type="button" class="theme-option" role="menuitemradio" data-theme="marigold" aria-checked="false">
+            <span class="swatch" style="--sw1:#fff9e6; --sw2:#f5b82e"></span>Marigold
+          </button>
+        </div>
+      </div>
+      </div>
     </div>
   </header>
 
